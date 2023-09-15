@@ -1,8 +1,11 @@
 package com.unispring.demo.models.dto;
 
+import io.swagger.annotations.ApiModelProperty;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -29,6 +32,8 @@ public class StudentDTO implements Serializable {
      * </p>
      */
     @NotBlank
+    @Size(min = 2, max = 20, message = "First name must be between 1 and 20 characters")
+    @ApiModelProperty(value = "Student's first name")
     private String firstName;
 
     /**
@@ -38,6 +43,8 @@ public class StudentDTO implements Serializable {
      * </p>
      */
     @NotBlank
+    @Size(min = 2, max = 20, message = "Second name must be between 1 and 20 characters")
+    @ApiModelProperty(value = "Student's second name")
     private String secondName;
 
     /**
@@ -48,5 +55,6 @@ public class StudentDTO implements Serializable {
      * </P>
      */
     @Email
+    @ApiModelProperty(value = "Student's email")
     private String studentEmail;
 }
